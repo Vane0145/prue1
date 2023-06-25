@@ -14,7 +14,7 @@ it("the features on the homepage are correct", () => {
 it("Suscribe for updates", () => {
   cy.get('[placeholder="Subscribe for Updates"]').type("Vanessa")
   cy.get('[value="Subscribe"]').click()
-  cy.get('[data-test="success-message"]')
+  cy.get('[data-test="success-message"]').should("exist")
 
 
 
