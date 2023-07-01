@@ -9,15 +9,15 @@ describe("Testing", () => {
     })
     
     context("Hero Section", () => {
-        it.only("alows users to suscribe to the email list", () =>{
-            homePage.elements.emailInput().type("canokarla034@gmail.com")
-            cy.getByData("submit-button").click()
-            cy.getByData("success-message").should("exist").contains("canokarla034@gmail.com")
+        it("allows users to suscribe to the email list", () =>{
+            homePage.elements.emailInput().type("a@gcom")
+            homePage.elements.submitBtn().click()
+            homePage.elements.successMessage().should("exist").contains("a@gcom")
         })
         it("alows users to suscribe to the email list", () =>{
-            cy.getByData("email-input").type("vane")
-            cy.getByData("submit-button").click()
-            cy.getByData("success-message").should("not.exist")
+            homePage.elements.emailInput().type("vane")
+            homePage.elements.submitBtn().click()
+            homePage.elements.successMessage().should("not.exist")
         })
         it("alows users to suscribe to the email list", () =>{
             cy.getByData("email-input").type("canokarla034@gmail.com")
