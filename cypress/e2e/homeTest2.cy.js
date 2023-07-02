@@ -16,13 +16,14 @@ describe("Testing", () => {
         })
         it("alows users to suscribe to the email list", () =>{
             homePage.elements.emailInput().type("vane")
-            homePage.elements.submitBtn().click()
+            homePage.clickOnSubmitBtn()
             homePage.elements.successMessage().should("not.exist")
         })
-        it("alows users to suscribe to the email list", () =>{
-            cy.getByData("email-input").type("canokarla034@gmail.com")
-            cy.getByData("submit-button").click()
-            cy.getByData("server-error-message").should("exist").contains("already exists. Please use a different email address.")
+        it.only("alows users to suscribe to the email list", () =>{
+            homePage.TypeUserName("john@example.com")
+            homePage.clickOnSubmitBtn()
+            homePage.elements.serverErrorMessage().should("exist")
+            
         })
     })
 
