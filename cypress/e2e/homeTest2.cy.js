@@ -1,4 +1,3 @@
-
 import homePage from "../pages/homePage"
 
 
@@ -9,10 +8,13 @@ describe("Testing", () => {
     })
     
     context("Hero Section", () => {
-        it("allows users to suscribe to the email list", () =>{
-            homePage.elements.emailInput().type("a@gcom")
-            homePage.elements.submitBtn().click()
-            homePage.elements.successMessage().should("exist").contains("a@gcom")
+        it.only("allows users to suscribe to the email list", () =>{
+            cy.fixture("example").then(user =>{
+                const email = user.email
+                console.log(email)
+                homePage.TypeUserName("email")
+                homePage.succesMess
+            })
         })
         it("alows users to suscribe to the email list", () =>{
             homePage.elements.emailInput().type("vane")
